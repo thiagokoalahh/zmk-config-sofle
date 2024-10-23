@@ -27,15 +27,6 @@
         };
     };
 
-    behaviors {
-        rotaryScroll: rotaryScroll {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ROTARYSCROLL";
-            #sensor-binding-cells = <0>;
-            bindings = <&mwh SCROLL_UP>, <&mwh SCROLL_DOWN>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -59,7 +50,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
-                <&rotaryScroll>;
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         lower_layer {
@@ -104,7 +95,9 @@
                           &trans        &trans          &trans           &trans        &trans    &trans  &trans     &trans    &trans    &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>, <&rotaryScroll>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         adjust_layer {
