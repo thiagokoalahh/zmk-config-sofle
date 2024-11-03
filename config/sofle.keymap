@@ -22,8 +22,28 @@
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
+            if-layers = <2 3>;
+            then-layer = <4>;
+        };
+    };
+
+    macros {
+        AND: AND {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp AMPERSAND &kp AMPERSAND>;
+            label = "AND";
+        };
+    };
+
+    behaviors {
+        mslayer: mslayer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "Hold layer/Sticky layer";
+            bindings = <&mo>, <&sl>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <30>;
         };
     };
 
@@ -41,16 +61,26 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                            &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
-&kp ESC    &kp Q   &kp W     &kp F     &kp P      &kp B                             &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
-&kp TAB    &kp A   &kp R     &kp S     &kp T      &kp G                             &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE    &none    &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &mo LOWER  &kp SPACE     &kp RET  &mo RAISE  &kp RCTRL  &kp RALT   &kp RGUI
+&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                          &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
+&kp GRAVE  &kp Q   &kp W     &kp F     &kp P      &kp B                           &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
+&kp TAB    &kp A   &kp R     &kp S     &kp T      &kp G                           &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
+&kp LSHFT  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE    &none  &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                   &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mo 2         &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
                 <&inc_dec_kp PAGE_UP PAGE_DOWN>;
+        };
+
+        symbol {
+            bindings = <
+&trans  &trans           &trans        &trans        &trans     &trans                           &trans       &trans                &trans                 &trans            &trans             &trans
+&trans  &kp GRAVE        &kp TILDE     &kp HASH      &kp AMPS   &kp PIPE                         &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
+&trans  &kp EXCLAMATION  &kp SQT       &kp COLON     &kp EQUAL  &kp DOLLAR                       &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE    &kp SEMICOLON      &trans
+&trans  &kp PERCENT      &kp QUESTION  &kp ASTERISK  &kp PLUS   &kp BACKSLASH  &trans    &trans  &kp SLASH    &kp MINUS             &kp LESS_THAN          &kp GREATER_THAN  &kp DOUBLE_QUOTES  &trans
+                         &trans        &trans        &trans     &trans         &trans    &trans  &trans       &trans                &trans                 &trans
+            >;
         };
 
         lower_layer {
@@ -115,6 +145,16 @@
 &none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                          &none  &none  &none  &none  &none  &none
 &none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none      &none  &none  &none  &none  &none  &none
                                     &none            &none            &none            &none            &soft_off          &soft_off  &none  &none  &none  &none
+            >;
+        };
+
+        Macros {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
