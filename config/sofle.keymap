@@ -65,7 +65,7 @@
 &kp GRAVE  &kp Q   &kp W     &kp F     &kp P      &kp B                           &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
 &kp TAB    &kp A   &kp R     &kp S     &kp T      &kp G                           &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
 &kp LSHFT  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE    &none  &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mo 2         &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
+                   &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mo 1         &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -75,12 +75,16 @@
 
         symbol {
             bindings = <
-&trans  &trans           &trans        &trans        &trans     &trans                           &trans       &trans                &trans                 &trans            &trans             &trans
-&trans  &kp GRAVE        &kp TILDE     &kp HASH      &kp AMPS   &kp PIPE                         &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
-&trans  &kp EXCLAMATION  &kp SQT       &kp COLON     &kp EQUAL  &kp DOLLAR                       &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE    &kp SEMICOLON      &trans
-&trans  &kp PERCENT      &kp QUESTION  &kp ASTERISK  &kp PLUS   &kp BACKSLASH  &trans    &trans  &kp SLASH    &kp MINUS             &kp LESS_THAN          &kp GREATER_THAN  &kp DOUBLE_QUOTES  &trans
-                         &trans        &trans        &trans     &trans         &trans    &trans  &trans       &trans                &trans                 &trans
+&kp ESC  &kp F1           &kp F2     &kp F3        &kp F4     &kp F5                               &kp F6       &kp F7                &kp F8                 &kp F9             &kp F10            &kp F11
+&trans   &kp GRAVE        &kp TILDE  &kp HASH      &kp AMPS   &kp PIPE                             &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp F12
+&trans   &kp EXCLAMATION  &kp SQT    &kp QUESTION  &kp EQUAL  &kp DOLLAR                           &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp SEMICOLON      &trans
+&trans   &kp PERCENT      &kp COLON  &kp ASTERISK  &kp PLUS   &kp BACKSLASH  &kp C_MUTE    &trans  &kp SLASH    &kp MINUS             &kp LESS_THAN          &kp GREATER_THAN   &kp UNDERSCORE     &trans
+                          &trans     &trans        &trans     &trans         &trans        &trans  &trans       &trans                &trans                 &trans
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         lower_layer {
