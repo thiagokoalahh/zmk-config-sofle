@@ -34,6 +34,20 @@
             bindings = <&kp AMPERSAND &kp AMPERSAND>;
             label = "AND";
         };
+
+        OR: OR {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE &kp PIPE>;
+            label = "OR";
+        };
+
+        SelectWord: SelectWord {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LEFT_ARROW) &kp LC(LS(RIGHT_ARROW))>;
+            label = "SELECTWORD";
+        };
     };
 
     behaviors {
@@ -61,11 +75,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                          &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
-&kp GRAVE  &kp Q   &kp W     &kp F     &kp P      &kp B                           &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
-&kp TAB    &kp A   &kp R     &kp S     &kp T      &kp G                           &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE    &none  &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mo 1         &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
+&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                            &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
+&kp GRAVE  &kp Q   &kp W     &kp F     &kp P      &kp B                             &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
+&kp TAB    &kp A   &kp R     &kp S     &kp T      &kp G                             &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
+&kp LSHFT  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE      &none  &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                   &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mslayer 1 5    &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -122,10 +136,10 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans   &none
-&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp N0   &trans
-&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-&trans      &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &trans        &trans    &trans  &trans     &trans    &trans    &trans     &trans   &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans    &trans    &trans     &trans         &none
+&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp DELETE     &trans
+&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &caps_word    &kp CLCK                        &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp BACKSPACE  &trans
+&trans      &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &trans        &trans    &trans  &trans     &trans    &trans    &trans     &trans         &trans
                           &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans    &trans    &trans
             >;
 
@@ -154,11 +168,11 @@
 
         Macros {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans       &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &AND    &OR                       &trans  &trans       &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &SelectWord  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans       &trans  &trans  &trans  &trans
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans       &trans  &trans
             >;
         };
     };
