@@ -75,11 +75,11 @@
             //               | GUI | ALT  | CTRL | LOWER|  ENTER |  | SPACE | RAISE| CTRL  | ALT   | GUI  |
 
             bindings = <
-&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                            &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
-&kp GRAVE  &kp Q   &kp W     &kp F     &kp P      &kp B                             &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
-&kp TAB    &kp A   &kp R     &kp S     &kp T      &kp G                             &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
-&kp LSHFT  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE      &none  &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                   &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mslayer 1 5    &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
+&kp ESC           &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                            &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp DEL
+&kp TAB           &kp Q   &kp W     &kp F     &kp P      &kp B                             &kp J      &kp L      &kp U      &kp Y     &kp SEMI  &kp BSPC
+&kp LEFT_SHIFT    &kp A   &kp R     &kp S     &kp T      &kp G                             &kp M      &kp N      &kp E      &kp I     &kp O     &kp SQT
+&kp LEFT_CONTROL  &kp Z   &kp X     &kp C     &kp D      &kp V      &kp C_MUTE      &none  &kp K      &kp H      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
+                          &kp LGUI  &kp LALT  &kp LCTRL  &kp SPACE  &mslayer 1 5    &mo 3  &kp ENTER  &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -90,8 +90,8 @@
         symbol {
             bindings = <
 &kp ESC  &kp F1           &kp F2     &kp F3        &kp F4     &kp F5                               &kp F6       &kp F7                &kp F8                 &kp F9             &kp F10            &kp F11
-&trans   &kp GRAVE        &kp TILDE  &kp HASH      &kp AMPS   &kp PIPE                             &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp F12
-&trans   &kp EXCLAMATION  &kp SQT    &kp QUESTION  &kp EQUAL  &kp DOLLAR                           &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp SEMICOLON      &trans
+&trans   &kp APOSTROPHE   &kp TILDE  &kp HASH      &kp AMPS   &kp PIPE                             &kp CARET    &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &kp F12
+&trans   &kp EXCLAMATION  &kp GRAVE  &kp QUESTION  &kp EQUAL  &kp DOLLAR                           &kp AT_SIGN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp SEMICOLON      &trans
 &trans   &kp PERCENT      &kp COLON  &kp ASTERISK  &kp PLUS   &kp BACKSLASH  &kp C_MUTE    &trans  &kp SLASH    &kp MINUS             &kp LESS_THAN          &kp GREATER_THAN   &kp UNDERSCORE     &trans
                           &trans     &trans        &trans     &trans         &trans        &trans  &trans       &trans                &trans                 &trans
             >;
